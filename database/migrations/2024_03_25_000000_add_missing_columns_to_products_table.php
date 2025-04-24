@@ -51,6 +51,9 @@ return new class extends Migration
                 if (!Schema::hasColumn('products', 'is_active')) {
                     $table->boolean('is_active')->default(true);
                 }
+                if (!Schema::hasColumn('products', 'stock_quantity')) {
+                    $table->integer('stock_quantity')->default(0);
+                }
             });
         }
     }
@@ -66,7 +69,8 @@ return new class extends Migration
                 'maximum_stock_level',
                 'location',
                 'image',
-                'is_active'
+                'is_active',
+                'stock_quantity'
             ]);
         });
     }
